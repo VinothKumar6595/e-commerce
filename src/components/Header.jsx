@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Cart from "./Cart";
+import CartContext from "../Store/Cart-Context";
 
 const Header = () => {
   const [cartToggle, setCartToggle] = useState(false);
+  const ctx = useContext(CartContext);
+  const cartQty = ctx.cartItems.reduce((current, item) => {
+    return current + Number(item.Quantity);
+  }, 0);
   return (
     <div>
       <div className="w-full shadow-md flex items-center pl-2">
@@ -17,6 +22,7 @@ const Header = () => {
           onClick={() => setCartToggle((prev) => !prev)}
         >
           Cart
+          <span className="p-2">{cartQty}</span>
         </button>
         {cartToggle && <Cart setCartToggle={setCartToggle} />}
       </div>
