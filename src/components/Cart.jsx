@@ -2,27 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import DisabledByDefaultIcon from "@mui/icons-material/DisabledByDefault";
 import CartContext from "../Store/Cart-Context";
 
-// const cartElements = [
-//   {
-//     title: "Colors",
-//     price: 100,
-//     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-//     quantity: 2,
-//   },
-//   {
-//     title: "Black and white Colors",
-//     price: 50,
-//     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-//     quantity: 3,
-//   },
-//   {
-//     title: "Yellow and Black Colors",
-//     price: 70,
-//     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-//     quantity: 1,
-//   },
-// ];
-
 const Cart = ({ setCartToggle }) => {
   const ctx = useContext(CartContext);
   console.log(ctx.cartItems);
@@ -33,15 +12,19 @@ const Cart = ({ setCartToggle }) => {
   useEffect(() => {
     setFilteredArr(ctx.cartItems);
   }, [ctx]);
-  const [filteredArr, setFilteredArr] = useState(ctx.cartItems);
-  const removeListHandler = (title) => {
+  const [filteredArr, setFilteredArr] = useState([]);
+  const removeListHandler = (item) => {
     setFilteredArr((prev) =>
-      prev.filter((item) => {
-        return item.title !== title;
+      prev.filter((product) => {
+        return item.title !== product.title;
       })
     );
+    ctx.removeFromCart(item);
   };
 
+  const totalAmount = ctx.cartItems.reduce((current, item) => {
+    return current + item.price * item.Quantity;
+  }, 0);
   return (
     <div className="h-[700px] w-[500px] bg-gray-200 absolute top-16 right-0 ">
       <div>
@@ -61,10 +44,14 @@ const Cart = ({ setCartToggle }) => {
         return (
           <div
             key={Math.random()}
-            className="flex justify-between mt-5 font-bold "
+            className="flex justify-between mt-10 font-bold border-b-[3px] border-slate-950 "
           >
-            <span className="flex w-64 flex-wrap">
-              <img src={item.imageUrl} width="50px" className="ml-2 mr-2" />{" "}
+            <span className="flex w-64 flex-wrap align-middle">
+              <img
+                src={item.imageUrl}
+                width="50px"
+                className="ml-2 mr-2 mb-2"
+              />{" "}
               {item.title}
             </span>
             <span className="w-12 text-center">{item.price}</span>
@@ -76,7 +63,7 @@ const Cart = ({ setCartToggle }) => {
               ></input>
               <button
                 onClick={() => {
-                  removeListHandler(item.title);
+                  removeListHandler(item);
                 }}
                 className="bg-red-500 p-1.5 rounded-md ml-2 text-sm"
               >
@@ -86,6 +73,14 @@ const Cart = ({ setCartToggle }) => {
           </div>
         );
       })}
+      <div className="flex justify-end font-serif font-bold mt-10 mr-10">
+        Total Amount: $ {totalAmount}
+      </div>
+      <div className="flex justify-center mt-10">
+        <button className="p-3 bg-blue-400 rounded-xl" onClick={ctx.clearCart}>
+          Purchase
+        </button>
+      </div>
     </div>
   );
 };

@@ -26,9 +26,26 @@ const CartProvider = (props) => {
     }
   };
 
+  const removeCartHandler = (item) => {
+    setCartItems(
+      cartItems.filter((cartItem) => {
+        return cartItem.title !== item.title;
+      })
+    );
+  };
+
+  const clearCartHandler = () => {
+    setCartItems([]);
+    <div className="font-bold text-3xl">
+      {alert("Thanks for the purchase")}
+    </div>;
+  };
+
   const cartContext = {
     cartItems: cartItems,
     addToCart: cartHandler,
+    removeFromCart: removeCartHandler,
+    clearCart: clearCartHandler,
   };
   return (
     <CartContext.Provider value={cartContext}>
