@@ -15,7 +15,7 @@ const Header = () => {
         <h1 className="text-3xl font-bold">E-Commerce</h1>
         <ul className="flex w-96 justify-around m-auto h-16 items-center font-bold">
           <li className="hover:cursor-pointer">
-            <Link to="/">Home</Link>
+            <Link to="/Home">Home</Link>
           </li>
           <li className="hover:cursor-pointer">
             <Link to="/">Store</Link>

@@ -11,7 +11,7 @@ const About = () => {
         <h1 className="text-3xl font-bold">E-Commerce</h1>
         <ul className="flex w-96 justify-around m-auto h-16 items-center font-bold">
           <li className="hover:cursor-pointer">
-            <Link to="/">Home</Link>
+            <Link to="/Home">Home</Link>
           </li>
           <li className="hover:cursor-pointer">
             <Link to="/">Store</Link>
@@ -22,9 +22,15 @@ const About = () => {
         </ul>
       </div>
       <h1 className="text-center text-3xl font-bold font-serif mt-10">ABOUT</h1>
-      <div className="mt-10 w-1/2  bg-gray-200 m-auto ">
-        <img src={image} alt="ecommerce" className=" rounded-lg w-48 " />
-        <p className="overflow">
+      <div className="mt-10 w-1/2  m-auto ">
+        <div className="flex justify-center">
+          <img
+            src={image}
+            alt="ecommerce"
+            className=" rounded-lg  w-48  mb-10"
+          />
+        </div>
+        <p>
           "Ecommerce" or "electronic commerce" is the trading of goods and
           services on the internet. It is your bustling city center or
           brick-and-mortar shop translated into zeroes and ones on the internet
