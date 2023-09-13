@@ -74,7 +74,7 @@ const Cart = ({ setCartToggle }) => {
         );
       })}
       <div className="flex justify-end font-serif font-bold mt-10 mr-10">
-        Total Amount: $ {totalAmount}
+        Total Amount: $ {totalAmount.toFixed(2)}
       </div>
       <div className="flex justify-center mt-10">
         <button className="p-3 bg-blue-400 rounded-xl" onClick={ctx.clearCart}>

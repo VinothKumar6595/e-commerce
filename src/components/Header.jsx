@@ -23,6 +23,9 @@ const Header = () => {
           <li className="hover:cursor-pointer">
             <Link to="/about">About</Link>
           </li>
+          <li className="hover:cursor-pointer">
+            <Link to="/contactUs">Contact Us</Link>
+          </li>
         </ul>
         <button
           className="mr-10 px-4 py-2 hover:bg-gray-900 hover:text-white rounded-md bg-gray-200 text-black"

@@ -13,7 +13,10 @@ const products = [
 
 const productsList = products.map((item) => {
   return (
-    <li className="flex justify-between w-96 m-auto p-2 font-bold items-center border-b-[3px] border-slate-950 ">
+    <li
+      key={Math.random()}
+      className="flex justify-between w-96 m-auto p-2 font-bold items-center border-b-[3px] border-slate-950 "
+    >
       {item.title}
       <button className=" bg-blue-300 p-2 rounded-lg font-normal">
         Buy Now
@@ -36,6 +39,9 @@ const Home = () => {
           </li>
           <li className="hover:cursor-pointer">
             <Link to="/about">About</Link>
+          </li>
+          <li className="hover:cursor-pointer">
+            <Link to="/contactUs">Contact Us</Link>
           </li>
         </ul>
       </div>
