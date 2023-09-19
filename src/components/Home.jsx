@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import StoreIcon from "@mui/icons-material/Store";
 
 const products = [
@@ -24,8 +24,8 @@ const productsList = products.map((item) => {
     </li>
   );
 });
-
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-gray-400">
       <div className="w-full shadow-md flex items-center pl-2">
@@ -49,7 +49,10 @@ const Home = () => {
         <h1 className=" font-serif font-extrabold text-7xl flex justify-center pt-10">
           My E-Commerce Website
         </h1>
-        <button className="flex ml-[860px] mt-10 p-7 rounded-lg text-2xl border-solid border-2 border-indigo-600 ">
+        <button
+          className="flex ml-[860px] mt-10 p-7 rounded-lg text-2xl border-solid border-2 border-indigo-600 "
+          onClick={() => navigate("/store")}
+        >
           Buy Products
         </button>
         <button className=" bg-slate-500 ml-[920px] mt-10 p-7 rounded-full ">

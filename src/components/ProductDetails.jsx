@@ -115,25 +115,25 @@ const ProductDetails = () => {
             src={product.image1}
             alt="image1"
             className="m-1 hover:border-2 hover:border-blue-400"
-            onClick={() => zoomImageHandler(product.image1)}
+            onMouseOver={() => zoomImageHandler(product.image1)}
           />
           <img
             src={product.image2}
             alt="image2"
             className="m-1 hover:border-2 hover:border-blue-400"
-            onClick={() => zoomImageHandler(product.image2)}
+            onMouseOver={() => zoomImageHandler(product.image2)}
           />
           <img
             src={product.image3}
             alt="image3"
             className="m-1 hover:border-2 hover:border-blue-400"
-            onClick={() => zoomImageHandler(product.image3)}
+            onMouseOver={() => zoomImageHandler(product.image3)}
           />
           <img
             src={product.image4}
             alt="image4"
             className="m-1 hover:border-2 hover:border-blue-400"
-            onClick={() => zoomImageHandler(product.image4)}
+            onMouseOver={() => zoomImageHandler(product.image4)}
           />
         </div>
         <div>
