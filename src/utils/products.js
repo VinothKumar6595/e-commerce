@@ -1,33 +1,37 @@
 export const productsArr = [
   {
-    title: "Colors",
+    title: "Blue Shirt",
 
     price: 100,
 
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+    imageUrl:
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/m/o/t/l-st1-vebnor-original-imagmsyxhvkrfjgz.jpeg?q=70",
   },
 
   {
-    title: "Black and white Colors",
+    title: "Sandal Shirt",
 
     price: 50,
 
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+    imageUrl:
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/z/x/y/l-st1-vebnor-original-imagn6bzam4rymhd.jpeg?q=70",
   },
 
   {
-    title: "Yellow and Black Colors",
+    title: "Red Shirt",
 
     price: 70,
 
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+    imageUrl:
+      "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/r/2/c/-original-imagt6zggysgg274.jpeg?q=70",
   },
 
   {
-    title: "Blue Color",
+    title: "Checked Shirt",
 
     price: 100,
 
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+    imageUrl:
+      "https://rukminim2.flixcart.com/image/832/832/l4d2ljk0/shirt/d/9/w/-original-imagfaezftczx3bf.jpeg?q=70",
   },
 ];

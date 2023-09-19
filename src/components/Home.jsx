@@ -27,7 +27,7 @@ const productsList = products.map((item) => {
 
 const Home = () => {
   return (
-    <div>
+    <div className="bg-gray-400">
       <div className="w-full shadow-md flex items-center pl-2">
         <h1 className="text-3xl font-bold font-serif">E-Commerce</h1>
         <ul className="flex w-96 justify-around m-auto h-16 items-center font-bold">
@@ -35,7 +35,7 @@ const Home = () => {
             <Link to="/Home">Home</Link>
           </li>
           <li className="hover:cursor-pointer">
-            <Link to="/">Store</Link>
+            <Link to="/store">Store</Link>
           </li>
           <li className="hover:cursor-pointer">
             <Link to="/about">About</Link>

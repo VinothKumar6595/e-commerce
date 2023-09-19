@@ -6,15 +6,15 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import { Link } from "react-router-dom";
 const About = () => {
   return (
-    <div>
-      <div className="w-full shadow-md flex items-center pl-2">
+    <div className="bg-gray-200">
+      <div className="w-full shadow-md flex items-center pl-2 bg-gray-400">
         <h1 className="text-3xl font-bold">E-Commerce</h1>
         <ul className="flex w-96 justify-around m-auto h-16 items-center font-bold">
           <li className="hover:cursor-pointer">
             <Link to="/Home">Home</Link>
           </li>
           <li className="hover:cursor-pointer">
-            <Link to="/">Store</Link>
+            <Link to="/store">Store</Link>
           </li>
           <li className="hover:cursor-pointer">
             <Link to="/about">About</Link>

@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const ContactUs = () => {
   const [name, setName] = useState("");
@@ -39,29 +39,52 @@ const ContactUs = () => {
     setPhone("");
   };
   return (
-    <Fragment>
+    <div className="bg-gray-200 h-[930px]">
       <div className="w-full shadow-md flex items-center pl-2">
         <h1 className="text-3xl font-bold">E-Commerce</h1>
         <ul className="flex w-96 justify-around m-auto h-16 items-center font-bold">
           <li className="hover:cursor-pointer">
-            <Link to="/Home">Home</Link>
+            <NavLink
+              className="active:border-solid active:border-b-2 active:border-blue-400"
+              to="/Home"
+            >
+              Home
+            </NavLink>
           </li>
           <li className="hover:cursor-pointer">
-            <Link to="/">Store</Link>
+            <NavLink
+              className="active:border-solid active:border-b-2 active: border-blue-400"
+              to="/store"
+            >
+              Store
+            </NavLink>
           </li>
           <li className="hover:cursor-pointer">
-            <Link to="/about">About</Link>
+            <NavLink
+              className="active:border-solid active:border-b-2 active: border-blue-400"
+              to="/about"
+            >
+              About
+            </NavLink>
           </li>
           <li className="hover:cursor-pointer">
-            <Link to="/contactUs">Contact Us</Link>
+            <NavLink
+              className="active:border-solid active:border-b-2 active:border-blue-400"
+              to="/contactUs"
+            >
+              Contact Us
+            </NavLink>
           </li>
         </ul>
       </div>
       <div>
         <form
-          className="flex flex-col w-96 m-auto mt-52"
+          className="flex flex-col w-[560px] m-auto mt-52 border-solid border-2 border-blue-400 p-10 rounded-2xl"
           onSubmit={formSubmitHandler}
         >
+          <h2 className="text-2xl font-serif font-bold m-auto mt-10 mb-10  ">
+            Get in Touch
+          </h2>
           <label className="text-l font-serif font-bold ">Name</label>
           <input
             type="text"
@@ -88,7 +111,7 @@ const ContactUs = () => {
           </button>
         </form>
       </div>
-    </Fragment>
+    </div>
   );
 };
 
