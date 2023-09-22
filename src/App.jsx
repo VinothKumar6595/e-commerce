@@ -11,6 +11,7 @@ import Home from "./components/Home";
 import ContactUs from "./components/ContactUs";
 import ProductDetails from "./components/ProductDetails";
 import Reviews from "./components/Reviews";
+import Login from "./components/Login";
 const router = createBrowserRouter([
   { path: "/", element: <Navigate to="/Home" /> },
   {
@@ -36,6 +37,7 @@ const router = createBrowserRouter([
     element: <ProductDetails />,
     children: [{ path: "reviews", element: <Reviews /> }],
   },
+  { path: "/auth", element: <Login /> },
 ]);
 function App() {
   return <RouterProvider router={router} />;

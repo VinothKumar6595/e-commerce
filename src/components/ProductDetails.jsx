@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import Reviews from "./Reviews";
 
 const dummyProducts = [
@@ -105,6 +105,9 @@ const ProductDetails = () => {
             >
               Contact Us
             </NavLink>
+          </li>
+          <li className="hover:cursor-pointer">
+            <Link to="/auth">Log In</Link>
           </li>
         </ul>
       </div>

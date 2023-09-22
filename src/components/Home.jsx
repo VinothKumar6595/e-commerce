@@ -43,6 +43,9 @@ const Home = () => {
           <li className="hover:cursor-pointer">
             <Link to="/contactUs">Contact Us</Link>
           </li>
+          <li className="hover:cursor-pointer">
+            <Link to="/auth">Log In</Link>
+          </li>
         </ul>
       </div>
       <div className="w-full bg-gray-100 h-96">

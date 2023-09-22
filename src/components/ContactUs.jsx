@@ -75,6 +75,9 @@ const ContactUs = () => {
               Contact Us
             </NavLink>
           </li>
+          <li className="hover:cursor-pointer">
+            <Link to="/auth">Log In</Link>
+          </li>
         </ul>
       </div>
       <div>
