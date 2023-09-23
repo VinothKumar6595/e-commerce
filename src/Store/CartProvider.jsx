@@ -5,6 +5,7 @@ const CartProvider = (props) => {
   const [cartItems, setCartItems] = useState([]);
   const initialToken = localStorage.getItem("token");
   const [token, setToken] = useState(initialToken);
+  const isLoggedIn = !!token;
   const cartHandler = (item) => {
     const existingItemIndex = cartItems.findIndex((color) => {
       return item.title === color.title;
@@ -44,12 +45,14 @@ const CartProvider = (props) => {
   };
 
   const loginHandler = (token) => {
-    localStorage.setItem("token", data.idToken);
+    localStorage.setItem("token", token);
+    alert("LOGIN SUCCESSFULL");
     setToken(token);
   };
 
   const cartContext = {
     token: token,
+    isLoggedIn: isLoggedIn,
     cartItems: cartItems,
     login: loginHandler,
     addToCart: cartHandler,

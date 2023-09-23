@@ -22,6 +22,9 @@ const About = () => {
           <li className="hover:cursor-pointer">
             <Link to="/contactUs">Contact Us</Link>
           </li>
+          <li className="hover:cursor-pointer">
+            <Link to="/auth">Log In</Link>
+          </li>
         </ul>
       </div>
       <h1 className="text-center text-3xl font-bold font-serif mt-10">ABOUT</h1>
