@@ -9,10 +9,9 @@ const CartProvider = (props) => {
   const [token, setToken] = useState(initialToken);
   const initialEndPoint = localStorage.getItem("endpoints");
   const [endPoint, setEndPoint] = useState(initialEndPoint);
-
-  const isLoggedIn = !!token;
+  const [isLoggedIn, setIsLoggedIn] = useState(!!token);
   const navaigate = useNavigate();
-  const url = `https://crudcrud.com/api/967fddb65f00425d86213fbaa0c0f53e${endPoint}`;
+  const url = `https://crudcrud.com/api/b97d6189516a45cea9be1df621fb9234${endPoint}`;
 
   const cartHandler = (item) => {
     // const existingItemIndex = cartItems.findIndex((color) => {
@@ -147,13 +146,15 @@ const CartProvider = (props) => {
     alert("LOGIN SUCCESSFULL");
     setEndPoint(end);
     setToken(token);
+    setIsLoggedIn(true);
   };
 
   const logoutHandler = () => {
     localStorage.clear();
     navaigate("/auth");
     alert("User Logged Out");
-    window.location.reload();
+    setIsLoggedIn(false);
+    // window.location.reload();
   };
 
   const cartContext = {
