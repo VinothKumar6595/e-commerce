@@ -147,13 +147,6 @@ const CartProvider = (props) => {
     alert("LOGIN SUCCESSFULL");
     setEndPoint(end);
     setToken(token);
-    fetch(url).then((res) => {
-      if (res.ok) {
-        res.json().then((data) => {
-          setCartItems(data);
-        });
-      }
-    });
   };
 
   const logoutHandler = () => {
@@ -164,6 +157,7 @@ const CartProvider = (props) => {
   };
 
   const cartContext = {
+    setCart: setCartItems,
     url: url,
     token: token,
     isLoggedIn: isLoggedIn,

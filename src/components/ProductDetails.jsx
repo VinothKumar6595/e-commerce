@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import { Link, NavLink, useParams } from "react-router-dom";
 import Reviews from "./Reviews";
 import Header from "./Header";

@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { productsArr } from "../utils/products";
+import CartContext from "../Store/Cart-Context";
 
 const ProductsList = () => {
+  const ctx = useContext(CartContext);
+  useEffect(() => {
+    ctx.isLoggedIn &&
+      fetch(ctx.url).then((res) => {
+        if (res.ok) {
+          res.json().then((data) => {
+            console.log(data);
+            ctx.setCart(data);
+          });
+        }
+      });
+  }, [ctx.isLoggedIn]);
   return (
     <div>
       {" "}
