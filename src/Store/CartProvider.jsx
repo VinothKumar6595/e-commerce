@@ -11,7 +11,7 @@ const CartProvider = (props) => {
   const [endPoint, setEndPoint] = useState(initialEndPoint);
   const [isLoggedIn, setIsLoggedIn] = useState(!!token);
   const navaigate = useNavigate();
-  const url = `https://crudcrud.com/api/b97d6189516a45cea9be1df621fb9234${endPoint}`;
+  const url = `https://crudcrud.com/api/ea84ec7e98fd4b909d41bc10fd697d43${endPoint}`;
 
   const cartHandler = (item) => {
     // const existingItemIndex = cartItems.findIndex((color) => {
