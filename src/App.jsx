@@ -2,7 +2,7 @@ import CartProvider from "./Store/CartProvider";
 import Header from "./components/Header";
 import ProductsList from "./components/ProductsList";
 import { Routes, Navigate, Route } from "react-router-dom";
-import About from "./components/about";
+import About from "./components/About";
 import Home from "./components/Home";
 import ContactUs from "./components/ContactUs";
 import ProductDetails from "./components/ProductDetails";
