@@ -154,7 +154,6 @@ const CartProvider = (props) => {
     navaigate("/auth");
     alert("User Logged Out");
     setIsLoggedIn(false);
-    // window.location.reload();
   };
 
   const cartContext = {

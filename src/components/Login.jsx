@@ -1,6 +1,7 @@
 import React, { useContext, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CartContext from "../Store/Cart-Context";
+import Header from "./Header";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -38,6 +39,25 @@ const Login = () => {
     emailInputRef.current.value = "";
     passwordInputRef.current.value = "";
   };
+  if (ctx.isLoggedIn) {
+    return (
+      <div>
+        <Header />
+        <div className="w-[600px] mt-64 m-auto flex flex-col justify-center items-center p-2 ">
+          <h1>You are Already Logged In</h1>
+          <p>
+            Kindly visit our Products Page{" "}
+            <Link
+              to="/store"
+              className="border-b-solid border-b-2 border-b-blue-400"
+            >
+              STORE
+            </Link>
+          </p>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="bg-gray-200 h-[960px] ">
       <div className="w-full shadow-md flex items-center pl-2">

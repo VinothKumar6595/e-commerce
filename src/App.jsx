@@ -39,10 +39,7 @@ function App() {
           element={<ProductDetails />}
         />
       )}
-      <Route
-        path="/auth"
-        element={loggedIn ? <Navigate to="/Home" /> : <Login />}
-      />
+      <Route path="/auth" element={<Login />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
