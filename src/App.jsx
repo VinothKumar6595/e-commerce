@@ -10,35 +10,12 @@ import Login from "./components/Login";
 import { useContext } from "react";
 import CartContext from "./Store/Cart-Context";
 import NotFound from "./components/NotFound";
-// const router = createBrowserRouter([
-//   { path: "/", element: <Navigate to="/Home" /> },
-//   {
-//     path: "/store",
-//     element: (
-//       <CartProvider>
-//         <div className="bg-gray-200">
-//           <Header />
-//           <ProductsList />
-//         </div>
-//       </CartProvider>
-//     ),
-//   },
+import { useEffect } from "react";
 
-//   {
-//     path: "/about",
-//     element: <About />,
-//   },
-//   { path: "/Home", element: <Home /> },
-//   { path: "/contactUs", element: <ContactUs /> },
-//   {
-//     path: "/product-details/:productName",
-//     element: <ProductDetails />,
-//   },
-//   { path: "/auth", element: <Login /> },
-// ]);
 function App() {
   const ctx = useContext(CartContext);
   const loggedIn = ctx.isLoggedIn;
+
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/Home" />} />

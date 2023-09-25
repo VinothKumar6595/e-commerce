@@ -21,12 +21,11 @@ const Cart = ({ setCartToggle }) => {
     );
     ctx.removeFromCart(item);
   };
-
   const totalAmount = ctx.cartItems.reduce((current, item) => {
     return current + item.price * item.Quantity;
   }, 0);
   return (
-    <div className="h-[700px] w-[500px] bg-gray-200 absolute top-16 right-0 ">
+    <div className="h-[850px] w-[500px] bg-gray-300 absolute top-16 right-0 ">
       <div>
         <div className="absolute right-2">
           <button onClick={() => setCartToggle(false)}>

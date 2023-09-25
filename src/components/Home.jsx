@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import StoreIcon from "@mui/icons-material/Store";
+import { useContext } from "react";
+import CartContext from "../Store/Cart-Context";
 
 const products = [
   { title: "Mobiles,Computers" },
@@ -25,6 +27,7 @@ const productsList = products.map((item) => {
   );
 });
 const Home = () => {
+  const ctx = useContext(CartContext);
   const navigate = useNavigate();
   return (
     <div className="bg-gray-400">
@@ -43,8 +46,10 @@ const Home = () => {
           <li className="hover:cursor-pointer">
             <Link to="/contactUs">Contact Us</Link>
           </li>
-          <li className="hover:cursor-pointer">
-            <Link to="/auth">Log In</Link>
+          <li className="hover:cursor-pointer bg-blue-300 p-2 rounded-lg">
+            <Link to="/auth" onClick={ctx.isLoggedIn && ctx.logout}>
+              {ctx.isLoggedIn ? "Log Out" : "Log In"}
+            </Link>
           </li>
         </ul>
       </div>

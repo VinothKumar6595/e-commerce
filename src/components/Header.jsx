@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Cart from "./Cart";
 import CartContext from "../Store/Cart-Context";
 import { Link } from "react-router-dom";
@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const [cartToggle, setCartToggle] = useState(false);
   const ctx = useContext(CartContext);
+  console.log(ctx.cartItems);
   const cartQty = ctx.cartItems.reduce((current, item) => {
     return current + Number(item.Quantity);
   }, 0);
+
   return (
     <div className="bg-gray-400">
       <div className="w-full shadow-md flex items-center pl-2">
@@ -26,8 +28,10 @@ const Header = () => {
           <li className="hover:cursor-pointer">
             <Link to="/contactUs">Contact Us</Link>
           </li>
-          <li className="hover:cursor-pointer">
-            <Link to="/auth">Log In</Link>
+          <li className="hover:cursor-pointer bg-blue-300 p-2 rounded-lg">
+            <Link to="/auth" onClick={ctx.isLoggedIn && ctx.logout}>
+              {ctx.isLoggedIn ? "Log Out" : "Log In"}
+            </Link>
           </li>
         </ul>
         <button

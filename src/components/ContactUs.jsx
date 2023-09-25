@@ -1,7 +1,9 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import CartContext from "../Store/Cart-Context";
 
 const ContactUs = () => {
+  const ctx = useContext(CartContext);
   const [name, setName] = useState("");
   const nameChangeHandler = (event) => {
     setName(event.target.value);
@@ -75,8 +77,10 @@ const ContactUs = () => {
               Contact Us
             </NavLink>
           </li>
-          <li className="hover:cursor-pointer">
-            <Link to="/auth">Log In</Link>
+          <li className="hover:cursor-pointer bg-blue-300 p-2 rounded-lg">
+            <Link to="/auth" onClick={ctx.isLoggedIn && ctx.logout}>
+              {ctx.isLoggedIn ? "Log Out" : "Log In"}
+            </Link>
           </li>
         </ul>
       </div>

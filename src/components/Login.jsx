@@ -11,6 +11,7 @@ const Login = () => {
     event.preventDefault();
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
+    const endPoints = `/${enteredEmail.replace(/\.|@/g, "")}`;
     fetch(
       "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAk_e3NbGKya1-s6hMLpBKK6mk5Ccf3tFU",
       {
@@ -25,7 +26,7 @@ const Login = () => {
     ).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
-          ctx.login(data.idToken);
+          ctx.login(data.idToken, endPoints);
           navigate("/store");
         });
       } else {
@@ -34,6 +35,8 @@ const Login = () => {
         });
       }
     });
+    emailInputRef.current.value = "";
+    passwordInputRef.current.value = "";
   };
   return (
     <div className="bg-gray-200 h-[960px] ">
@@ -52,9 +55,11 @@ const Login = () => {
           <li className="hover:cursor-pointer">
             <Link to="/contactUs">Contact Us</Link>
           </li>
-          <li className="hover:cursor-pointer">
-            <Link to="/auth">Log In</Link>
-          </li>
+          {/* <li className="hover:cursor-pointer bg-blue-300 p-2 rounded-lg">
+            <Link to="/auth" onClick={ctx.isLoggedIn && ctx.logout}>
+              {ctx.isLoggedIn ? "Log Out" : "Log In"}
+            </Link>
+          </li> */}
         </ul>
       </div>
       <div>

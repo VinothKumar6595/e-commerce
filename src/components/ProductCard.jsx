@@ -1,11 +1,33 @@
 import React, { useContext } from "react";
-import { productsArr } from "../utils/products";
 import CartContext from "../Store/Cart-Context";
-import { NavLink, Navigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const ProductCard = (props) => {
   const ctx = useContext(CartContext);
+  const endPoint = localStorage.getItem("endpoints");
+  // const url = `https://crudcrud.com/api/a32763fefcbe48a395f0d16b285b2543${endPoint}`;
   const addToCartHandler = (item) => {
+    // fetch(url, {
+    //   method: "GET",
+    // }).then((res) => {
+    //   if (res.ok) {
+    //     res.json().then((data) => {
+    //       const existingItemIndex = data.findIndex((color) => {
+    //         return item.title === color.title;
+    //       });
+    //       console.log(existingItemIndex);
+    //       if (existingItemIndex === -1) {
+    //         ctx.addToCart({ ...item, Quantity: 1 });
+    //       } else {
+    //         const id = data[existingItemIndex]._id;
+    //         ctx.addToCart({ ...item, Quantity: 1 }, id);
+    //       }
+    //     });
+    //   } else {
+    //     console.log("error");
+    //   }
+    // });
+    // ctx.addToCart({ ...item, Quantity: 1 });
     ctx.addToCart({ ...item, Quantity: 1 });
   };
 

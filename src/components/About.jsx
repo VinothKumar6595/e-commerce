@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import image from "../assets/image.jpg.png";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { Link } from "react-router-dom";
+import CartContext from "../Store/Cart-Context";
 const About = () => {
+  const ctx = useContext(CartContext);
   return (
     <div className="bg-gray-200">
       <div className="w-full shadow-md flex items-center pl-2 bg-gray-400">
@@ -22,8 +24,10 @@ const About = () => {
           <li className="hover:cursor-pointer">
             <Link to="/contactUs">Contact Us</Link>
           </li>
-          <li className="hover:cursor-pointer">
-            <Link to="/auth">Log In</Link>
+          <li className="hover:cursor-pointer bg-blue-300 p-2 rounded-lg">
+            <Link to="/auth" onClick={ctx.isLoggedIn && ctx.logout}>
+              {ctx.isLoggedIn ? "Log Out" : "Log In"}
+            </Link>
           </li>
         </ul>
       </div>

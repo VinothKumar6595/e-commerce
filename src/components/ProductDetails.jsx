@@ -1,12 +1,14 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import { Link, NavLink, useParams } from "react-router-dom";
 import Reviews from "./Reviews";
+import Header from "./Header";
+import CartContext from "../Store/Cart-Context";
 
 const dummyProducts = [
   {
     title: "Blue Shirt",
     price: 100,
-    image1:
+    imageUrl:
       "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/m/o/t/l-st1-vebnor-original-imagmsyxhvkrfjgz.jpeg?q=70",
     image2:
       "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/s/g/p/l-st1-vebnor-original-imagmsyxunkgztzw.jpeg?q=70",
@@ -19,7 +21,7 @@ const dummyProducts = [
   {
     title: "Sandal Shirt",
     price: 50,
-    image1:
+    imageUrl:
       "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/z/x/y/l-st1-vebnor-original-imagn6bzam4rymhd.jpeg?q=70",
     image2:
       "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/u/c/u/l-st1-vebnor-original-imagn6bzvrtgfzm3.jpeg?q=70",
@@ -32,7 +34,7 @@ const dummyProducts = [
   {
     title: "Red Shirt",
     price: 70,
-    image1:
+    imageUrl:
       "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/r/2/c/-original-imagt6zggysgg274.jpeg?q=70",
     image2:
       "https://rukminim2.flixcart.com/image/832/832/xif0q/shirt/f/n/h/-original-imagt6zghk7g5gr4.jpeg?q=70",
@@ -45,7 +47,7 @@ const dummyProducts = [
   {
     title: "Checked Shirt",
     price: 100,
-    image1:
+    imageUrl:
       "https://rukminim2.flixcart.com/image/832/832/l4d2ljk0/shirt/d/9/w/-original-imagfaezftczx3bf.jpeg?q=70",
     image2:
       "https://rukminim2.flixcart.com/image/832/832/kohigsw0/shirt/t/y/k/46-2032637-wrogn-original-imag2xfqjjrzbsdx.jpeg?q=70",
@@ -58,20 +60,25 @@ const dummyProducts = [
 
 const ProductDetails = () => {
   const params = useParams();
+  const ctx = useContext(CartContext);
   console.log(params.productName);
   const product = dummyProducts.find(
     (products) => products.title === params.productName
   );
   console.log(product);
 
-  const [image, setImage] = useState(product.image1);
+  const [image, setImage] = useState(product.imageUrl);
   const zoomImageHandler = (image) => {
     setImage(image);
   };
 
+  const addToCartHandler = (item) => {
+    ctx.addToCart({ ...item, Quantity: 1 });
+  };
+
   return (
     <div className="bg-gray-200 h-[960px]">
-      <div className="w-full shadow-md flex items-center pl-2 bg-gray-400">
+      {/* <div className="w-full shadow-md flex items-center pl-2 bg-gray-400">
         <h1 className="text-3xl font-bold">E-Commerce</h1>
         <ul className="flex w-96 justify-around m-auto h-16 items-center font-bold">
           <li className="hover:cursor-pointer">
@@ -110,15 +117,16 @@ const ProductDetails = () => {
             <Link to="/auth">Log In</Link>
           </li>
         </ul>
-      </div>
+      </div> */}
+      <Header />
       <h1 className="font-bold text-3xl mt-10 ml-24">Product Details</h1>
       <div className="flex">
         <div className="block h-12 w-24  mt-16 ml-24">
           <img
-            src={product.image1}
+            src={product.imageUrl}
             alt="image1"
             className="m-1 hover:border-2 hover:border-blue-400"
-            onMouseOver={() => zoomImageHandler(product.image1)}
+            onMouseOver={() => zoomImageHandler(product.imageUrl)}
           />
           <img
             src={product.image2}
@@ -145,7 +153,10 @@ const ProductDetails = () => {
           <button className="bg-gray-400 p-2.5 mr-40 mt-10 rounded-2xl w-32 hover:bg-black hover:text-white">
             Buy Now
           </button>
-          <button className="bg-gray-400 p-2.5 mt-10 rounded-2xl w-32  hover:bg-black hover:text-white">
+          <button
+            className="bg-gray-400 p-2.5 mt-10 rounded-2xl w-32  hover:bg-black hover:text-white"
+            onClick={() => addToCartHandler(product)}
+          >
             Add To Cart
           </button>
         </div>
