@@ -12,6 +12,7 @@ const Cart = ({ setCartToggle }) => {
   useEffect(() => {
     setFilteredArr(ctx.cartItems);
   }, [ctx]);
+
   const [filteredArr, setFilteredArr] = useState([]);
   const removeListHandler = (item) => {
     setFilteredArr((prev) =>
